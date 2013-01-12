@@ -15,7 +15,7 @@ from django.shortcuts import render_to_response
 from django.utils.translation import ugettext
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from models import InvitationError, Invitation, InvitationStats
+from models import Invitation
 from invite_registration.forms import InvitationForm
 from invite_registration.settings import REDIRECT_URL
 

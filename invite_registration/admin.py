@@ -15,9 +15,9 @@ from invite_registration.models import InvitationUse, Invitation
 
 
 class InvitationUseAdmin(admin.ModelAdmin):
-    fields = ('user', 'available', 'sent', 'accepted', )    
-    list_display = ('user', 'available', 'sent', 'accepted', )
-    list_filter = ('user', 'available', 'sent', 'accepted', )    
+    fields = ('user', 'available', )    
+    list_display = ('user', 'available', )
+    list_filter = ('user', 'available', )    
 
 admin.site.register(InvitationUse, InvitationUseAdmin)
 
