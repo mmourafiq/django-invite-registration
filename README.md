@@ -15,7 +15,7 @@ This reusable Django applications provides many useful things to a site under pr
   to beta testers only.
 * A user invitation workflow:
 
-    1. User fills out an invitation form, entering an email address.    
+    1. User fills out an invitation form, entering an email address.
     2. An invitation code is created and sent to the email address.
     3. User is able to register in with the invitation code and begin contributing to your site.
     4. The new user has a quota restrictions.
@@ -54,6 +54,16 @@ Create the necessary templates for invite-registration :
   - invite_registration/invitation_email.txt is used for the body of the invitation email.
 
 Examples of all of these templates are not provided; you will need to create them yourself.
+
+Email Auth Backend
+==================
+
+If you would like to allow users to log-in with their email address, set/add EmailAuthBackend as/to your authentication backend:
+
+	AUTHENTICATION_BACKENDS = (
+		...
+		'emailusernames.backends.EmailAuthBackend',
+	)
 
 Closed beta middleware
 ======================
