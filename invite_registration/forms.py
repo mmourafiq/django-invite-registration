@@ -40,17 +40,12 @@ class RegistrationFormInvitation(forms.Form):
                                                 _("This value may contain only letters, numbers and ./-/_ characters.")})
     email = forms.EmailField(widget=forms.TextInput(attrs=dict(attrs_dict, maxlength=75)),
                              label=_("E-mail"))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict, render_value=False),
+    password = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict, render_value=False),
                                 min_length = 8,
                                 error_messages={'invalid': _(u"Minimum 8 caractères.")},
                                 label=_("Password"))    
-    code = InvitationCodeField(required=True, max_length=6,                              
-                               label=_(u"Invitation code"))
-    tos = forms.BooleanField(widget=forms.CheckboxInput(attrs=attrs_dict),
-                            label=_(u'I have read and agree to the Terms of ' \
-                                    u' Service'),
-                            error_messages={'required': _("You must agree " \
-                                    u"to the terms to register")})          
+    code = forms.CharField(required=True, max_length=6,                              
+                               label=_(u"Invitation code"))         
     honeypot = forms.CharField(required=False,
                                     label=_('If you enter anything in this field '\
                                             'your comment will be treated as spam'))  

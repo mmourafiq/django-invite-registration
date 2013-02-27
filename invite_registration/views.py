@@ -9,13 +9,14 @@ Created on Mar 20, 2012
 other contributers: 
 '''
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.utils.translation import ugettext
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from models import Invitation
+from django.utils import simplejson
+from models import Invitation, InviteRequest
 from invite_registration.forms import InvitationForm
 from invite_registration.settings import REDIRECT_URL
 
@@ -27,8 +28,18 @@ def request_invite(request, form_class=InvitationForm):
     if request.method == 'POST':
         form = form_class(request.POST)
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(REDIRECT_URL)
+            InviteRequest.objects.get_or_create(email=form.cleaned_data['email'])            
+            if not request.is_ajax():  
+                return HttpResponseRedirect(REDIRECT_URL)
+            response = ({'success':True})
+            json = simplejson.dumps(response, ensure_ascii=False)
+            return HttpResponse(json, mimetype="application/json") 
+        else:
+            if not request.is_ajax():  
+                return HttpResponseRedirect(REDIRECT_URL)
+            response = ({'success':False})
+            json = simplejson.dumps(response, ensure_ascii=False)
+            return HttpResponse(json, mimetype="application/json")
 
 @login_required
 def invite(request, success_url=None, form_class=InvitationForm,

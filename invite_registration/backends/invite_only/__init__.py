@@ -18,7 +18,7 @@ from django.contrib.auth.models import User
 from registration import signals
 from registration.models import RegistrationProfile
 from invite_registration.forms import RegistrationFormInvitation as RegistrationForm
-from invite_registration.models import Invitation
+from invite_registration.models import Invitation, InvitationUse
 
 class InviteOnlyBackend(object):
     """
@@ -57,10 +57,11 @@ class InviteOnlyBackend(object):
         up and logged in.
         """
         username, email, password, code = kwargs['username'], \
-            kwargs['email'], kwargs['password1'], kwargs['code']                    
-        User.objects.create_user(username, email, password)
+            kwargs['email'], kwargs['password'], kwargs['code']                    
+        User.objects.create_user(username, email, password)        
         invitation = Invitation.objects.get(code=code, email=email)                                
-        new_user = authenticate(username=username, password=password)        
+        new_user = authenticate(username=username, password=password)
+        InvitationUse.objects.create(user=new_user)        
         invitation.accepted(new_user)        
         login(request, new_user)
         signals.user_registered.send(sender=self.__class__,

@@ -52,7 +52,7 @@ class PrivateBetaMiddleware(object):
         if request.user.is_authenticated() or not self.enable_beta:
             # User is logged in, no need to check anything else.
             return
-        whitelisted_modules = ['django.contrib.auth.views', 'django.views.static', 'invite_registration.views']
+        whitelisted_modules = ['django.contrib.auth.views', 'django.views.static', 'invite_registration.views', 'views']
         if self.always_allow_modules:
             whitelisted_modules += self.always_allow_modules
 
