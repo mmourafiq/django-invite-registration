@@ -11,7 +11,7 @@ other contributers:
 about : this was originally created by Pragmatic Badger. 
 '''
 from django.http import HttpResponseRedirect
-from invite_registration.settings import REDIRECT_URL, NEVER_ALLOW_VIEWS, ENABLE_BETA, ALWAYS_ALLOW_VIEWS, ALWAYS_ALLOW_MODULES
+from invite_registration.invite_registration_settings import REDIRECT_URL, NEVER_ALLOW_VIEWS, ENABLE_BETA, ALWAYS_ALLOW_VIEWS, ALWAYS_ALLOW_MODULES
 
 class PrivateBetaMiddleware(object):
     """

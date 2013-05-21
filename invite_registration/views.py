@@ -18,7 +18,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.utils import simplejson
 from models import Invitation, InviteRequest
 from invite_registration.forms import InvitationForm
-from invite_registration.settings import REDIRECT_URL
+from invite_registration.invite_registration_settings import REDIRECT_URL
 
 
 def request_invite(request, form_class=InvitationForm):

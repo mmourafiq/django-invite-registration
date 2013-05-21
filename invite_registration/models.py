@@ -19,7 +19,7 @@ from django.contrib.sites.models import RequestSite
 from django.contrib.sites.models import Site
 from django.db import models
 from invite_registration import signals
-from invite_registration.settings import INITIAL_NUMBER_INVITATIONS
+from invite_registration.invite_registration_settings import INITIAL_NUMBER_INVITATIONS
 
 DEFAULT_ALPHABET = 'az7er5tyu1io0pq4sd9fg6hjk8lmw3xcv2bn'
 
