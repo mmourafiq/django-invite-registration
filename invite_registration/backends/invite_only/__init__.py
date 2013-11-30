@@ -1,13 +1,4 @@
 # -*- coding: utf-8 -*-
-'''
-Created on Mar 20, 2012
-
-@author: Mourad Mourafiq
-
-@copyright: Copyright © 2012
-
-other contributers: 
-'''
 import datetime
 from django.conf import settings
 from django.contrib.auth import authenticate

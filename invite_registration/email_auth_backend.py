@@ -1,13 +1,4 @@
 # -*- coding: utf-8 -*-
-'''
-Created on Mar 20, 2012
-
-@author: Mourad Mourafiq
-
-@copyright: Copyright © 2012
-
-other contributers: 
-'''
 from django.contrib.auth.models import User, check_password
 from django.contrib.auth.backends import ModelBackend
 

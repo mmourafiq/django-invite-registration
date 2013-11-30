@@ -1,13 +1,4 @@
 # -*- coding: utf-8 -*-
-'''
-Created on Mar 20, 2012
-
-@author: Mourad Mourafiq
-
-@copyright: Copyright © 2012
-
-other contributers: 
-'''
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from invite_registration.models import Invitation

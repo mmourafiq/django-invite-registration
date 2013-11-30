@@ -1,14 +1,4 @@
 # -*- coding: utf-8 -*-
-'''
-Created on Mar 20, 2012
-
-@author: Mourad Mourafiq
-
-@copyright: Copyright © 2012
-
-other contributers: 
-'''
-
 """
 URLconf for registration and activation, using invite_registration backend.
 
